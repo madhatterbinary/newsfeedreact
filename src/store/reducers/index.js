@@ -1,0 +1,3 @@
+export {
+    feedReducer
+} from './feedReducer';

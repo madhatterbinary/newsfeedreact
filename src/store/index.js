@@ -1,14 +1,14 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import { userReducer } from '../reducers'
+import { feedReducer } from './reducers/index';
 
 var store
 export default {
 
-	configure: (initialState) => { // initialState can be null
+	configure: (initialState) => { 
 		
-		const reducers = combineReducers({ // insert reducers here
-			user: userReducer
+		const reducers = combineReducers({ 
+			feed: feedReducer
 		})
 
 		if (initialState){
@@ -17,7 +17,6 @@ export default {
 			    initialState,
 			    applyMiddleware(thunk)
 			)
-
 			return store
 		}
 
@@ -25,7 +24,6 @@ export default {
 		    reducers,
 		    applyMiddleware(thunk)
 		)
-
 		return store
 	},
 
